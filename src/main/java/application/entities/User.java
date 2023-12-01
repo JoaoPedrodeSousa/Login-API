@@ -14,9 +14,13 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 60)
+    @Column(length = 40)
     private String name;
 
+    @Column(unique = true,length = 20)
+    private String username;
+
+    @Column(length = 20)
     private String password;
 
     @Column(unique = true)
@@ -25,12 +29,14 @@ public class User implements Serializable {
     @Column(unique = true)
     private String phone;
 
+    private Boolean logged = Boolean.FALSE;
     public User(){
     }
 
-    public User(Long id, String name, String password, String email, String phone) {
+    public User(Long id, String name, String username, String password, String email, String phone) {
         this.id = id;
         this.name = name;
+        this.username = username;
         this.password = password;
         this.email = email;
         this.phone = phone;
@@ -50,6 +56,14 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -74,6 +88,14 @@ public class User implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Boolean getLogged() {
+        return logged;
+    }
+
+    public void setLogged(Boolean logged) {
+        this.logged = logged;
     }
 
     @Override
