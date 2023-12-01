@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Resource
 @RestController
-@RequestMapping(value = "/u")
+@RequestMapping(value = "/login")
 public class UserResource {
 
     @Autowired
